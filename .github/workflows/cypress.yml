@@ -1,0 +1,51 @@
+name: Run Cypress Tests and Deploy Allure Report
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      docker:
+        image: docker:19.03.12
+        options: --privileged
+        ports:
+          - 3000:3000
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Start the application
+        run: |
+          docker-compose up -d
+          sleep 15 # wait for the app to start
+
+      - name: Run Cypress tests
+        run: npx cypress run
+
+      - name: Generate Allure Report
+        run: |
+          npx allure generate cypress/reports --clean
+          npx allure open
+
+      - name: Upload Allure Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: allure-report
+          path: allure-report/
