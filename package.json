@@ -14,10 +14,14 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-  "start": "umi dev",
-  "build": "umi build",
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "eslintConfig": {
     "extends": [
