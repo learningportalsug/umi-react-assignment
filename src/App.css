@@ -1,0 +1,150 @@
+.app-container {
+  font-family: Arial, sans-serif;
+  background-color: #fbf0d2;
+  width: 100vw; /* Use viewport width instead of 100% */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+h1 {
+  text-align: center;
+  padding: 10px;
+}
+
+.user-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 1px;
+  margin-left: 100px;
+  margin-right: 100px;
+  align-content: center;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fbf0d2;
+  margin: 10px;
+}
+
+.user-card {
+  background-color: #004641;
+  color: #e0e0e0;
+  margin-bottom: var(--user-card-margin);
+  padding: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 10px 10px 10px 10px;
+  align-content: center;
+  margin: 10px;
+}
+
+.user-card:hover {
+  background-color: #f5be96;
+  color: black;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.user-detail {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.left-panel {
+  flex: 3;
+  padding: 20px;
+}
+
+.user-info {
+  background-color: #f5be96;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px 10px 10px 10px;
+  height: 100px;
+  margin-top: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.posts-section {
+  flex: 7;
+  padding: 20px;
+}
+
+.post-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-card {
+  margin: 10px;
+  padding: 10px;
+  background-color: #f5be96;
+  border-radius: 10px 10px 10px 10px;
+}
+
+button {
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #004641;
+  color: white;
+  border: none;
+  transition: background-color 0.3s;
+  border-radius: 10px 10px 10px 10px;
+  height: 50px;
+  width: 200px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+
+  .user-card {
+    align-content: center;
+    margin-left: 50px;
+    width: 80%;
+  }
+
+  .user-detail {
+    flex-direction: column;
+  }
+
+  .left-panel {
+    flex: 1;
+  }
+
+  .posts-section {
+    flex: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .user-list {
+    grid-template-columns: 1fr;
+    align-content: center;
+    margin-left: 60px;
+  }
+
+  .user-card {
+    width: 95%;
+    align-content: center;
+    margin-right: 5px;
+    margin-left: 0.5px;
+  }
+
+  .page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fbf0d2;
+    margin-right: inherit;
+  }
+}
