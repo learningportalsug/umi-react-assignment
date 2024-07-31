@@ -1,6 +1,7 @@
 {
   "name": "users-and-posts",
   "version": "0.1.0",
+  "homepage": "https://github.com/learningportalsug/umi-react-assignment",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
@@ -13,13 +14,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-  "start": "react-scripts start",
-  "build": "react-scripts build",
-  "test": "react-scripts test",
-  "eject": "react-scripts eject",
-  "cypress:open": "cypress open",
-  "cypress:run": "cypress run"
-},
+  "start": "umi dev",
+  "build": "umi build",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d dist"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -41,6 +40,7 @@
   "devDependencies": {
     "@shelex/cypress-allure-plugin": "^2.40.2",
     "cypress": "^13.13.1",
+    "gh-pages": "^6.1.1",
     "start-server-and-test": "^1.15.4"
   }
 }
